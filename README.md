@@ -51,9 +51,21 @@ The following document is currently work in progress.
 
 * Short conditions SHOULD be specified inline.
 * The AND/OR operator MUST be positioned at the beginning of the line.
-* Long conditions MUST be split on multiple lines and surrounded by parenthesis.
+* Long conditions MUST be split on multiple lines.
 
   Example:
+
+  ````
+  WHERE
+    column_a IS NULL
+    AND column_b = 3
+    AND column_c = 4
+  ````
+
+*  Conditions which have complex logic must be surrounded by parenthesis.
+
+  Example:
+  
   ````
   WHERE
     (
@@ -68,7 +80,6 @@ The following document is currently work in progress.
       )
     )
   ````
-* 
 
 ### GROUP BY clause
 
