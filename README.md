@@ -54,18 +54,16 @@ The following document is currently work in progress.
 * Long conditions MUST be split on multiple lines.
 
   Example:
-
   ````
   WHERE
     column_a IS NULL
     AND column_b = 3
     AND column_c = 4
   ````
-
-*  Conditions which have complex logic must be surrounded by parenthesis.
+  
+* Conditions which have complex logic must be surrounded by parenthesis.
 
   Example:
-  
   ````
   WHERE
     (
