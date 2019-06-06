@@ -12,7 +12,12 @@ Indentation
 
 * Use spaces, not tabs.
 * 1 TAB is equal to 4 spaces.
-* Top level statements such as SELECT, UPDATE, DELETE, MUST not be indented.
+* The following are considered FIRST level statements: 
+  SELECT, INSERT, UPDATE, DELETE 
+  and MUST not start indented.
+* The following are considered SECOND level statements: 
+  INTO, FROM, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT, OFSET
+  and should be indented by exactly 1 TAB from the TOP level statement.
 * Each sublevel MUST be indented by exactly 1 TAB.
 
 Aliases
@@ -65,15 +70,23 @@ GROUP BY statement
 
 * Grouping by a single column SHOULD be specified on the same line as the GROUP BY keyword
 * Grouping by a multiple columns:
-  * Columns MUST be specified on a new line indented
-  * Columns MUST have the comma separator at the end of the line and not at the beginning
-* Column name MUST be the same case as defined in SELECT
+  * Each column MUST be specified on a new line, indented.
+  * Each column, except for the last, MUST have the comma separator at the end of the line and not at the beginning.
+* Column name MUST be the same case as defined in SELECT.
 
 ORDER BY statement
 
 * ASC / DESC order MUST be defined after the column name
 * Ordering by a single column SHOULD be specified on the same line as the ORDER BY keyword
 * Ordering by a multiple columns:
-  * Columns MUST be specified on a new line, indented
-  * Columns MUST have the comma separator at the end of the line and not at the beginning
-  * Column names MUST have the comma separator at the end of the line
+  * Each column MUST be specified separately on a new line, indented.
+  * Each column, except for the last, MUST have the comma separator at the end of the line and not at the beginning.
+  
+LIMIT statement
+
+* MUST be defined on the same line as the LIMIT keyword
+* MUST not contain an OFSET, use OFSET statement for defining one
+
+OFSET statement
+
+* MUST be defined on the same line as the OFSET keyword
