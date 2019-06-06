@@ -6,26 +6,19 @@ The following document is currently work in progress.
 
 * Language keywords MUST be written in UPPER CASE format.
 * Table and column names MUST be written as they are defined in the database.
-* Statement length should be maximum of 120 characters, everything longer than that should be split into multiple rows.
+* Line length MUST be maximum 120 characters in length, everything longer than that MUST be split into multiple lines.
 
-Indentation
+### Indentation
 
-* Use spaces, not tabs.
-* 1 TAB is equal to 4 spaces.
-* The following are considered FIRST level statements: 
-  SELECT, INSERT, UPDATE, DELETE 
-  and MUST not start indented.
-* The following are considered SECOND level statements: 
-  INTO, FROM, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT, OFSET
-  and should be indented by exactly 1 TAB from the FIRST level statement.
-* Each sublevel MUST be indented by exactly 1 TAB.
+* Indentation MUST be performed using spaces and not tabs.
+* Indent size MUST be 4 spaces.
 
-Aliases
+### Aliases
 
 * MUST use the AS keyword.
 * MUST be camelCase.
 
-Subqueries and other expressions
+### Subqueries and other expressions
 
 * MUST be surrounded with parenthesis.
 * MUST be aliased.
@@ -36,57 +29,67 @@ Subqueries and other expressions
 
 ## Selects
 
-SELECT statement
+### SELECT clause
 
-* When selecting a single column:
-  * column name SHOULD be on the same line as the SELECT keyword.
-* When selecting multiple columns:
-  * each column name MUST be on a separate line indented.
-  * comma separator SHOULD be at the end of the line.
+* Column name MUST be specified inline with the SELECT keyword when selecting a single column.
+* Column name MUST be specified on a separate line below the SELECT keyword, indented, when selecting multiple columns.
+* Column separator - COMMA - MUST be placed after the column name.
 
-FROM statement
+### FROM clause
 
-* Tables MUST be specified on the same line as the FROM keyword.
-* Usage of implicit JOIN aka specifing multiple comma separated tables in FROM statement is prohibited. 
-  Use explicit JOIN statement instead.
-* When dealing with multiple tables using JOIN operations, the most important table SHOULD be specified in the FROM clause, 
-  the rest should be part of the JOIN.
-* Tables MUST be aliased when combined with JOIN operations.
+* Table name MUST be specified inline with the FROM keyword.
+* Table name MUST have an alias when JOIN clauses are defined.
+* From clause MUST consist of only one table. Usage of implicit JOIN statements is prohibited.
 
-JOIN statement
+### JOIN clause
 
-* Inner join MUST be defined as INNER JOIN, the usage of short JOIN variant is prohibited.
-* Left/Right outer join MUST be defined as LEFT/RIGHT JOIN, the usage of long oboslete LEFT/RIGHT OUTER JOIN variant is prohibited.
-* Joined tables MUST be aliased.
+* Inner join MUST be defined using INNER JOIN keyword, the usage of short JOIN keyword variant is prohibited. 
+* Left/Right outer joins MUST be defined using LEFT/RIGHT JOIN keyword, the usage of long oboslete LEFT/RIGHT OUTER JOIN keyword is prohibited.
+* Joined tables MUST have an alias.
 
-WHERE statement, HAVING statement
+### WHERE clause, HAVING clause
 
-* Short equality conditions MAY be put on the same line as the WHERE keyword.
-* Long conditions MUST be placed on a new line, indented.
-* Long complex conditions MUST be grouped using parenthesis.
-* The AND/OR operator SHOULD be at the beginning of the line.
+* Short conditions SHOULD be specified inline.
+* The AND/OR operator MUST be positioned at the beginning of the line.
+* Long conditions MUST be split on multiple lines and surrounded by parenthesis.
 
-GROUP BY statement
+  Example:
+  ````
+  WHERE
+    (
+      column_a = 5
+      AND column_b = 1
+    )
+    OR (
+      column_c = 7  
+      AND (
+        column_d = 1
+        AND column_e IS NULL
+      )
+    )
+  ````
+* 
 
-* Grouping by a single column SHOULD be specified on the same line as the GROUP BY keyword
-* Grouping by a multiple columns:
-  * Each column MUST be specified on a new line, indented.
-  * Each column, except for the last, MUST have the comma separator at the end of the line and not at the beginning.
-* Column name MUST be the same case as defined in SELECT.
+### GROUP BY clause
 
-ORDER BY statement
+* Column name MUST be the same as defined in the SELECT clause.
+* Column name MUST be specified inline with the GROUP BY keyword when grouping by a single column.
+* Column name MUST be specified separately on a new line, indented below the GROUP BY keyword, when grouping by multiple columns.
+* Column separator - COMMA - MUST be positioned after the column and not before.
 
-* ASC / DESC order MUST be defined after the column name
-* Ordering by a single column SHOULD be specified on the same line as the ORDER BY keyword
-* Ordering by a multiple columns:
-  * Each column MUST be specified separately on a new line, indented.
-  * Each column, except for the last, MUST have the comma separator at the end of the line and not at the beginning.
-  
-LIMIT statement
+### ORDER BY clause
 
-* Limit value MUST be defined on the same line as the LIMIT keyword
-* MUST not contain an OFSET, use OFSET statement for defining one
+* Order direction keyword - ASC / DESC - MUST be specified inline with the column name.
+* Order direction keyword MUST not be omitted.
+* Column name MUST be specified inline with the ORDER BY keyword when ordered by a single column.
+* Column name MUST be specified separately on a new line, indented below the ORDER BY keyword, when ordered by multiple columns.
+* Column separator - COMMA - MUST ne positioned after the column and not before.
 
-OFSET statement
+### LIMIT clause
 
-* Ofset value MUST be defined on the same line as the OFSET keyword
+* Limit value MUST be defined inline with the LIMIT keyword.
+* LIMIT clause MUST not contain an OFSET, use OFSET clause for defining one.
+
+### OFSET clause
+
+* Ofset value MUST be defined inline with the OFSET keyword.
