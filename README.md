@@ -84,9 +84,9 @@ ORDER BY statement
   
 LIMIT statement
 
-* MUST be defined on the same line as the LIMIT keyword
+* Limit value MUST be defined on the same line as the LIMIT keyword
 * MUST not contain an OFSET, use OFSET statement for defining one
 
 OFSET statement
 
-* MUST be defined on the same line as the OFSET keyword
+* Ofset value MUST be defined on the same line as the OFSET keyword
