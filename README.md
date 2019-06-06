@@ -17,7 +17,7 @@ Indentation
   and MUST not start indented.
 * The following are considered SECOND level statements: 
   INTO, FROM, JOIN, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT, OFSET
-  and should be indented by exactly 1 TAB from the TOP level statement.
+  and should be indented by exactly 1 TAB from the FIRST level statement.
 * Each sublevel MUST be indented by exactly 1 TAB.
 
 Aliases
