@@ -50,6 +50,7 @@ INSERT INTO people (
 * Column separator - COMMA - MUST be placed after the column value.
 * Closing parenthesis which holds the column values MUST be specified on a new line below the last specified column value.
 
+Example:
 ```
 VALUES (
   'Nikola',
