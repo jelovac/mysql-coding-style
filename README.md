@@ -64,8 +64,24 @@ VALUES (
 ### SELECT clause
 
 * Column name MUST be specified inline with the SELECT keyword when selecting a single column.
+
+Example:
+```
+SELECT birthDate
+FROM people
+```
+
 * Column name MUST be specified on a separate line below the SELECT keyword, indented, when selecting multiple columns.
 * Column separator - COMMA - MUST be placed after the column name.
+
+Example:
+```
+SELECT
+  firstName,
+  lastName,
+  birthDate
+FROM people
+```
 
 ### FROM clause
 
