@@ -91,6 +91,17 @@ VALUES (
 * Table name MUST have an alias when JOIN clauses are defined.
 * From clause MUST consist of only one table. Usage of implicit JOIN statements is prohibited.
 
+Example:
+```
+SELECT
+  person.firstName,
+  person.lastName,
+  account.balance
+FROM people AS person
+INNER JOIN accounting AS account
+  ON account.person_id = person.id
+```
+
 ### JOIN clause
 
 * Inner join MUST be defined using INNER JOIN keyword, the usage of short JOIN keyword variant is prohibited. 
