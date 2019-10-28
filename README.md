@@ -25,6 +25,38 @@ The following document is currently work in progress.
 
 ## Inserts
 
+### INSERT INTO clause
+
+* Table name MUST be specified inline with the INSERT INTO clause
+* Opening parenthesis which holds the column names MUST be specified inline with the INSERT INTO clause separated by space after table name.
+* Column name MUST be specified on a separate line below the INSERT INTO clause, indented.
+* Column separator - COMMA - MUST be placed after the column name.
+* Closing parenthesis which holds the column names MUST be specified on a new line below the last specified column name.
+
+```
+INSERT INTO people (
+  firstName,
+  lastName,
+  birthDate
+)
+```
+
+### VALUES clause
+
+* VALUES clause MUST BE specified in a new row
+* Opening parenthesis which holds the column values MUST be inline with the VALUES keyword, separated by a single space.
+* Column values MUST be specified on a separate line, indented.
+* Column separator - COMMA - MUST be placed after the column value.
+* Closing parenthesis which holds the column values MUST be specified on a new line below the last specified column value.
+
+```
+VALUES (
+  'Nikola',
+  'Tesla',
+  '1856-07-10'
+)
+```
+
 ## Updates
 
 ## Selects
