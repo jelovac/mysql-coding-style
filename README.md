@@ -6,7 +6,7 @@ The following document is currently work in progress.
 
 * Language keywords MUST be written in UPPER CASE format.
 * Table and column names MUST be written as they are defined in the database.
-* Line length MUST be maximum 120 characters in length, everything longer than that MUST be split into multiple lines.
+* Line length MUST be maximum 80 characters in length, everything longer than that MUST be split into multiple lines.
 
 ### Indentation
 
@@ -92,7 +92,7 @@ The following document is currently work in progress.
 * Order direction keyword MUST not be omitted.
 * Column name MUST be specified inline with the ORDER BY keyword when ordered by a single column.
 * Column name MUST be specified separately on a new line, indented below the ORDER BY keyword, when ordered by multiple columns.
-* Column separator - COMMA - MUST ne positioned after the column and not before.
+* Column separator - COMMA - MUST be positioned after the column and not before.
 
 ### LIMIT clause
 
