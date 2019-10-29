@@ -2,6 +2,7 @@
 
 The following document is currently work in progress.
 
+
 ## Common
 
 * Language keywords MUST be written in UPPER CASE format.
@@ -13,6 +14,8 @@ The following document is currently work in progress.
 * Indentation MUST be performed using spaces and not tabs.
 * Indent size MUST be 4 spaces.
 
+Note: This is highly opiniated so we might decide later to switch to tabs over spaces.
+
 ### Aliases
 
 * MUST use the AS keyword.
@@ -23,43 +26,6 @@ The following document is currently work in progress.
 * MUST be surrounded with parenthesis.
 * MUST be aliased.
 
-## Inserts
-
-### INSERT INTO clause
-
-* Table name MUST be specified inline with the INSERT INTO clause
-* Opening parenthesis which holds the column names MUST be specified inline with the INSERT INTO clause separated by space after table name.
-* Column name MUST be specified on a separate line below the INSERT INTO clause, indented.
-* Column separator - COMMA - MUST be placed after the column name.
-* Closing parenthesis which holds the column names MUST be specified on a new line below the last specified column name.
-
-Example:
-```
-INSERT INTO people (
-  firstName,
-  lastName,
-  birthDate
-)
-```
-
-### VALUES clause
-
-* VALUES clause MUST BE specified in a new row
-* Opening parenthesis which holds the column values MUST be inline with the VALUES keyword, separated by a single space.
-* Column values MUST be specified on a separate line, indented.
-* Column separator - COMMA - MUST be placed after the column value.
-* Closing parenthesis which holds the column values MUST be specified on a new line below the last specified column value.
-
-Example:
-```
-VALUES (
-  'Nikola',
-  'Tesla',
-  '1856-07-10'
-)
-```
-
-## Updates
 
 ## Selects
 
@@ -163,3 +129,82 @@ INNER JOIN accounting AS account
 ### OFSET clause
 
 * Ofset value MUST be defined inline with the OFSET keyword.
+
+## Inserts
+
+### INSERT INTO clause
+
+* Table name MUST be specified inline with the INSERT INTO clause
+* Opening parenthesis which holds the column names MUST be specified inline with the INSERT INTO clause separated by space after table name.
+* Column name MUST be specified on a separate line below the INSERT INTO clause, indented.
+* Column separator - COMMA - MUST be placed after the column name.
+* Closing parenthesis which holds the column names MUST be specified on a new line below the last specified column name.
+
+Example:
+```
+INSERT INTO people (
+  firstName,
+  lastName,
+  birthDate
+)
+```
+
+### VALUES clause
+
+* VALUES clause MUST BE specified in a new row
+* Opening parenthesis which holds the column values MUST be inline with the VALUES keyword, separated by a single space.
+* Column values MUST be specified on a separate line, indented.
+* Column separator - COMMA - MUST be placed after the column value.
+* Closing parenthesis which holds the column values MUST be specified on a new line below the last specified column value.
+
+Example:
+```
+VALUES (
+  'Nikola',
+  'Tesla',
+  '1856-07-10'
+)
+```
+
+
+## Updates
+
+### UPDATE clause
+
+* Table name MUST be specified inline with the UPDATE keyword when updating a single table.
+* Table name MUST be specified on a separate line, indented, when updating multiple tables.
+
+### JOIN clause
+
+* MUST follow the same guidelines as in SELECT statement
+
+### SET clause
+
+* Column name MUST be specified inline when updating a single column.
+* Column name MUST be specified in a new row, indented, when updating multiple columns.
+* Column separator - COMMA - MUST be placed after the column value.
+
+### WHERE clause
+
+* MUST follow the same guidelines as in SELECT statement
+
+
+## Deletes
+
+### DELETE clause
+
+* Table name MUST be ommited when deleting from a single table
+* Table name MUST be specified on a new line, indented, when deleting from multiple tables.
+* Table separator - COMMA - MUST be placed after the table name.
+
+### FROM clause
+
+* MUST follow the same guidelines as in SELECT statement
+
+### JOIN clause
+
+* MUST follow the same guidelines as in SELECT statement
+
+### WHERE clause
+
+* MUST follow the same guidelines as in SELECT statement
