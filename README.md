@@ -7,14 +7,18 @@ The following document is currently work in progress.
 
 * Language keywords MUST be written in UPPER CASE format.
 * Table and column names MUST be written as they are defined in the database.
-* Line length MUST be maximum 80 characters in length, everything longer than that MUST be split into multiple lines.
+* Line length MUST not exceed 80 characters in length, everything longer than that MUST be split into multiple lines.
 
 ### Indentation
 
 * Indentation MUST be performed using spaces and not tabs.
-* Indent size MUST be 4 spaces.
+* Indent size MUST be 8 spaces.
 
-Note: This is highly opiniated so we might decide later to switch to tabs over spaces.
+### Separators
+
+* Separators MUST be placed at the beginning of the line and not at the end.
+
+Note: This is highly opiniated so we might decide later to switch to the oposite.
 
 ### Aliases
 
@@ -36,19 +40,16 @@ Note: This is highly opiniated so we might decide later to switch to tabs over s
   Example:
   ```
   SELECT birthDate
-  FROM people
   ```
 
 * Column name MUST be specified on a separate line below the SELECT keyword, indented, when selecting multiple columns.
-* Column separator - COMMA - MUST be placed after the column name.
 
   Example:
   ```
   SELECT
-    firstName,
-    lastName,
-    birthDate
-  FROM people
+          firstName
+  ,       lastName
+  ,       birthDate
   ```
 
 ### FROM clause
@@ -60,12 +61,13 @@ Note: This is highly opiniated so we might decide later to switch to tabs over s
 Example:
 ```
 SELECT
-  person.firstName,
-  person.lastName,
-  account.balance
-FROM people AS person
-INNER JOIN accounting AS account
-  ON account.person_id = person.id
+        person.firstName
+,       person.lastName
+,       account.balance
+  FROM  people AS person
+ INNER
+  JOIN  accounting AS account
+    ON  account.person_id = person.id
 ```
 
 ### JOIN clause
@@ -77,33 +79,44 @@ INNER JOIN accounting AS account
 ### WHERE clause, HAVING clause
 
 * Short conditions SHOULD be specified inline.
+
+  Example:
+  
+  ```
+  WHERE  person.id = 5
+  ```
+
 * The AND/OR operator MUST be positioned at the beginning of the line.
-* Long conditions MUST be split on multiple lines.
+* Long conditions MUST be split over multiple lines.
 
   Example:
   ````
   WHERE
-    column_a IS NULL
-    AND column_b = 3
-    AND column_c = 4
+         account.balance IS NULL
+         AND person.id = 5
   ````
   
 * Conditions which have complex logic must be surrounded by parenthesis.
 
   Example:
   ````
-  WHERE
-    (
-      column_a = 5
-      AND column_b = 1
-    )
-    OR (
-      column_c = 7  
-      AND (
-        column_d = 1
-        AND column_e IS NULL
-      )
-    )
+  SELECT  MAX(account.balance)
+    FROM  people AS person
+   INNER
+    JOIN  acconting AS account
+      ON  account.person_id = person.id
+   WHERE
+          (
+                  YEAR(person.birthDate) >= 2000
+             AND  person.firstName = "Nikola"
+          )
+          OR (
+                  MONTH(person.birthDate) = 5
+             AND  (
+                         account.column_d = 1
+                    AND  account.column_e IS NULL
+            )
+          )
   ````
 
 ### GROUP BY clause
@@ -134,36 +147,27 @@ INNER JOIN accounting AS account
 
 ### INSERT INTO clause
 
-* Table name MUST be specified inline with the INSERT INTO clause
-* Opening parenthesis which holds the column names MUST be specified inline with the INSERT INTO clause separated by space after table name.
-* Column name MUST be specified on a separate line below the INSERT INTO clause, indented.
-* Column separator - COMMA - MUST be placed after the column name.
-* Closing parenthesis which holds the column names MUST be specified on a new line below the last specified column name.
-
 Example:
 ```
-INSERT INTO people (
-  firstName,
-  lastName,
-  birthDate
-)
+INSERT 
+  INTO  people 
+     (
+        firstName
+,       lastName
+,       birthDate
+     )
 ```
 
 ### VALUES clause
 
-* VALUES clause MUST BE specified in a new row
-* Opening parenthesis which holds the column values MUST be inline with the VALUES keyword, separated by a single space.
-* Column values MUST be specified on a separate line, indented.
-* Column separator - COMMA - MUST be placed after the column value.
-* Closing parenthesis which holds the column values MUST be specified on a new line below the last specified column value.
-
 Example:
 ```
-VALUES (
-  'Nikola',
-  'Tesla',
-  '1856-07-10'
-)
+VALUES 
+     (
+        'Nikola'
+,       'Tesla'
+,       '1856-07-10'
+     )
 ```
 
 
@@ -180,13 +184,23 @@ VALUES (
 
 ### SET clause
 
-* Column name MUST be specified inline when updating a single column.
-* Column name MUST be specified in a new row, indented, when updating multiple columns.
-* Column separator - COMMA - MUST be placed after the column value.
+* Column name MUST be specified inline after the SET keyword when updating a single column.
+* Column name MUST be specified in a new row, below the SET keyword, indented, when updating multiple columns.
 
 ### WHERE clause
 
 * MUST follow the same guidelines as in SELECT statement
+
+
+Example:
+```
+UPDATE  accounting AS account
+ INNER
+  JOIN  people AS person
+    ON  person.id = account.person_id
+   SET  account.balance = 0
+ WHERE  person.deteted = 1
+```
 
 
 ## Deletes
