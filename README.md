@@ -48,8 +48,8 @@ Note: This is highly opiniated so we might decide later to switch to the oposite
   ```
   SELECT
           firstName
-  ,       lastName
-  ,       birthDate
+       ,  lastName
+       ,  birthDate
   ```
 
 ### FROM clause
@@ -62,8 +62,8 @@ Example:
 ```
 SELECT
         person.firstName
-,       person.lastName
-,       account.balance
+     ,  person.lastName
+     ,  account.balance
   FROM  people AS person
  INNER
   JOIN  accounting AS account
@@ -150,24 +150,22 @@ SELECT
 Example:
 ```
 INSERT 
-  INTO  people 
-     (
+  INTO  people (
         firstName
-,       lastName
-,       birthDate
-     )
+     ,  lastName
+     ,  birthDate
+  )
 ```
 
 ### VALUES clause
 
 Example:
 ```
-VALUES 
-     (
+VALUES (
         'Nikola'
-,       'Tesla'
-,       '1856-07-10'
-     )
+     ,  'Tesla'
+     ,  '1856-07-10'
+)
 ```
 
 
