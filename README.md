@@ -8,6 +8,7 @@ The following document is currently work in progress.
 * Language keywords MUST be written in UPPER CASE format.
 * Table and column names MUST be written as they are defined in the database.
 * Line length MUST not exceed 80 characters in length, everything longer than that MUST be split into multiple lines.
+* To ensure better readability main keywords MUST be right aligned and MUST follow the RIVER pattern (https://www.red-gate.com/simple-talk/sql/t-sql-programming/formatting-sql-code-part-second/).
 
 ### Indentation
 
